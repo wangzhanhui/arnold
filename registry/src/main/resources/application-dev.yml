@@ -1,0 +1,23 @@
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka/
+  instance:
+    leaseExpirationDurationInSeconds: 15
+    leaseRenewalIntervalInSeconds: 5
+    preferIpAddress: true
+  server:
+    enableSelfPreservation: false
+    evictionIntervalTimerInMs: 3000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    heapdump:
+      enabled: false

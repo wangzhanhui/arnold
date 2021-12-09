@@ -1,0 +1,31 @@
+server:
+  port: 18888
+spring:
+  profiles:
+    active: @spring.profiles.active@
+  application:
+    name: eureka-client
+
+eureka:
+  client:
+    register-with-eureka: true  # 是否将该应用实例注册到server上
+    fetch-registry: true  # 是否从Server获取注册的服务列表
+    registry-fetch-interval-seconds: 5  # 刷新缓存清单的频率
+  instance:
+    lease-expiration-duration-in-seconds: 15 # Client发送心跳给Server端后，服务失效时间（默认90秒）
+    lease-renewal-interval-in-seconds: 5 # 发送心跳续约间隔（默认30秒）
+    prefer-ip-address: true # 是否使用ip地址替代hostname作为实例的hostName值
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}:${spring.application.name} # 主机名称:服务名称修改，其实就是向server中注册的实例id
+  server:
+    enable-self-preservation: false # 是否开启自我保护
+    eviction-interval-timer-in-ms: 3000 # 指定EvictionTask定时任务的调度频率，用于剔除过期的实例
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    heapdump:
+      enabled: false
