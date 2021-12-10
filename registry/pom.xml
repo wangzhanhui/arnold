@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.test.arnold</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.0</version>
+        <version>${parent.version}</version> <!-- parent中用变量会有红色波浪线提示(1、editor-inspections-maven-usage of properties in parent description(勾选去除)；2、maven升级到3.5.2及以上 ) -->
         <relativePath>../parent/pom.xml</relativePath> <!-- 设定一个空值将始终从仓库中获取，不从本地路径获取，查找顺序：relativePath元素中的地址–本地仓库–远程仓库 -->
     </parent>
 
@@ -27,7 +27,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
