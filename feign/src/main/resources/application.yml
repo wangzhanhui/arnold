@@ -1,0 +1,9 @@
+server:
+  port: 18881
+spring:
+  application:
+    name: feign
+logging:
+  level:
+    com.test.arnold: debug
+    #cn.springcloud.book.feign.service.HelloFeignService: debug

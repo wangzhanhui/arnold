@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.test.arnold</groupId>
+        <artifactId>parent</artifactId>
+        <version>${parent.version}</version> <!-- parent中用变量会有红色波浪线提示(1、editor-inspections-maven-usage of properties in parent description(勾选去除)；2、maven升级到3.5.2及以上 ) -->
+        <relativePath>../parent/pom.xml</relativePath> <!-- 设定一个空值将始终从仓库中获取，不从本地路径获取，查找顺序：relativePath元素中的地址–本地仓库–远程仓库 -->
+    </parent>
+
+    <groupId>com.test.arnold</groupId>
+    <artifactId>feign</artifactId>
+    <version>${feign.version}</version>
+    <name>feign</name>
+    <description>feign demo</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- Spring Cloud OpenFeign的Starter的依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- 打包后文件名称：项目名-环境-版本 -->
+        <finalName>${project.artifactId}-${spring.profiles.active}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!-- 开启过滤替换功能-->
+                <filtering>true</filtering>
+                <includes>
+                    <!-- 项目打包完成的包中只包含当前环境文件 -->
+                    <include>application.yml</include>
+                    <include>application-${spring.profiles.active}.yml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+</project>
