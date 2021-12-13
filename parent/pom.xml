@@ -25,6 +25,7 @@
         <config-server.version>1.0.0</config-server.version>
         <common.version>1.0.0</common.version>
         <feign.version>1.0.0</feign.version>
+        <turbine.version>1.0.0</turbine.version>
     </properties>
 
     <modules>
@@ -32,6 +33,8 @@
         <module>../eureka-client</module>
         <module>../config</module>
         <module>../common</module>
+        <module>../feign</module>
+        <module>../turbine</module>
     </modules>
 
     <!-- 定义的所有依赖，子项目并不会继承，子项目中引入我们需要的依赖，才能使用(不用设置版本号，首先会找父项目dependencyManagement里定义的，没有则找本项目的，再没有则报错) -->

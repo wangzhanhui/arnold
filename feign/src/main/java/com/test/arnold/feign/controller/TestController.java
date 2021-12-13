@@ -22,7 +22,7 @@ public class TestController {
     @GetMapping("/search/github")
     public String searchRepo(String queryStr){
         log.info("TestController.searchRepo:queryStr={}", queryStr);
-        return testService.searchRepo(queryStr);
+        return testService.searchRepo();
     }
 
 }
