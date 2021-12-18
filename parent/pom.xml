@@ -18,6 +18,8 @@
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
         <spring-boot.version>2.0.8.RELEASE</spring-boot.version>
         <hutool.version>4.4.5</hutool.version>
+        <spring-boot-admin-client.version>2.0.5</spring-boot-admin-client.version>
+        <spring-boot-admin-server.version>2.0.5</spring-boot-admin-server.version>
 
         <parent.version>1.0.1</parent.version>
         <registry.version>1.0.0</registry.version>
@@ -26,6 +28,7 @@
         <common.version>1.0.0</common.version>
         <feign.version>1.0.0</feign.version>
         <turbine.version>1.0.0</turbine.version>
+        <spring-boot-admin.version>1.0.0</spring-boot-admin.version>
     </properties>
 
     <modules>
@@ -35,6 +38,7 @@
         <module>../common</module>
         <module>../feign</module>
         <module>../turbine</module>
+        <module>../spring-boot-admin</module>
     </modules>
 
     <!-- 定义的所有依赖，子项目并不会继承，子项目中引入我们需要的依赖，才能使用(不用设置版本号，首先会找父项目dependencyManagement里定义的，没有则找本项目的，再没有则报错) -->
@@ -56,6 +60,19 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring-boot-admin-server.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring-boot-admin-client.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

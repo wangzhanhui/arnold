@@ -12,34 +12,24 @@
     </parent>
 
     <groupId>com.test.arnold</groupId>
-    <artifactId>eureka-client</artifactId>
-    <version>${eureka-client.version}</version>
+    <artifactId>spring-boot-admin</artifactId>
+    <version>${spring-boot-admin.version}</version>
     <packaging>jar</packaging>
-    <name>eureka-client</name>
-    <description>eureka-client</description>
+    <name>spring-boot-admin</name>
+    <description>spring-boot-admin</description>
 
     <dependencies>
-        <dependency>
-            <groupId>com.test.arnold</groupId>
-            <artifactId>common</artifactId>
-            <version>${common.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.netflix.hystrix</groupId>
-            <artifactId>hystrix-javanica</artifactId>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-server</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
